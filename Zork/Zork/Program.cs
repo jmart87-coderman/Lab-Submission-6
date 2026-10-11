@@ -71,13 +71,13 @@ namespace Zork
         }
 
 
-        static void Main(string[] args)
+        static void Main(string[] args) 
         {
-            Console.WriteLine("Welcome to zork!");
+            Console.WriteLine("Welcome to zork!"); // after the game starts, the program immediately grabs the room descriptions
             InitializeRoomDescriptions();
 
 
-            Room previousRoom = null;
+            Room previousRoom = null; // resets any commands to make sure the player can start from 0 properly.
             Commands command = Commands.UNKNOWN;
             while (command != Commands.QUIT)
             {
@@ -103,7 +103,7 @@ namespace Zork
                     case Commands.SOUTH:
                     case Commands.EAST:
                     case Commands.WEST:
-                        if (Move(command) == false)
+                        if (Move(command) == false) // all direction commands follow this same switch case logic
                         {
                             Console.WriteLine("The way is shut!");
                         }
@@ -166,7 +166,7 @@ namespace Zork
 
     }
 
-    public class Room
+    public class Room //separate class for rooms
     {
         public string Name { get; }
 
